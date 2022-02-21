@@ -1,4 +1,5 @@
 using DotnetRuChatEFCExample.DAL;
+using DotnetRuChatEFCExample.DAL.Repositories.Example;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,10 +11,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContextPool<ExampleDbContext>(optionsBuilder =>
+builder.Services.AddDbContextFactory<ExampleDbContext>(optionsBuilder =>
 {
     optionsBuilder.UseNpgsql("User ID=postgres;Password=12345;Host=localhost;Port=5432;Database=dotnetru_efcore_example;");
 });
+
+builder.Services.AddSingleton<IExampleRepository, ExampleRepository>();
 
 var app = builder.Build();
 

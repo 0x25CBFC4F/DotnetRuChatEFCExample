@@ -26,14 +26,14 @@ public class ExampleRepository : BaseRepository, IExampleRepository
         return await context.ExampleEntities.FirstOrDefaultAsync(e => e.Id.Equals(id));
     }
 
-    public async void Edit(ExampleEntity entity)
+    public async Task Edit(ExampleEntity entity)
     {
         await using var context = await GetContext();
         context.ExampleEntities.Update(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Remote(ExampleEntity entity)
+    public async Task Remove(ExampleEntity entity)
     {
         await using var context = await GetContext();
         context.ExampleEntities.Attach(entity);

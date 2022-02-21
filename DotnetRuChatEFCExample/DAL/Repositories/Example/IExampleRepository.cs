@@ -7,6 +7,6 @@ public interface IExampleRepository
     Task Add(ExampleEntity entity);
     Task<IEnumerable<ExampleEntity>> GetAll();
     Task<ExampleEntity> GetById(Guid id);
-    void Edit(ExampleEntity entity);
-    Task Remote(ExampleEntity entity);
+    Task Edit(ExampleEntity entity);
+    Task Remove(ExampleEntity entity);
 }

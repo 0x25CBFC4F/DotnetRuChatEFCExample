@@ -16,3 +16,5 @@ Cons:
 2. Execute `dotnet ef migrations add "Example entity added" -o "./DAL/Migrations"` in any desired terminal
 
 Enjoy 💖
+
+PS. No viewmodels/DTO's are implemented though. Just EFC example.
